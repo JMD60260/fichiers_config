@@ -12,13 +12,14 @@ Dir.mkdir("#{@chemin}""/""#{$nom}")
 Dir.chdir "#{$nom}"
 @geminit = ["'rspec'", "'pry'", "'rubocop', '~>0.57.2'", "'twitter'", "'dotenv'", "'nokogiri'", "'watir','~>6.16'", "'launchy'"]
  # Creation dossier projet, dossier lib, dossier db 
- # Fichiers README, .gitignore, .env
+ # Fichiers README, .gitignore, .env, app.rb
 def lib
    Dir.mkdir("#{@chemin}""/""#{$nom}""/lib")
    Dir.mkdir("#{@chemin}""/""#{$nom}""/db")
    Dir.mkdir("#{@chemin}""/""#{$nom}""/Autres_fichiers")
    other_file = File.open("#{@chemin}""/""#{$nom}""/Autres_fichiers/.env")
    other_file2 = File.open("#{@chemin}""/""#{$nom}""/Autres_fichiers/.gitignore")
+   app_file = File.open("#{@chemin}""/""#{$nom}""/app.rb", "w+")
    file = File.open("#{@chemin}""/""#{$nom}""/README.md", "w+")
    file.puts ("Ceci est le README du dossier : ""#{$nom}")
    file.puts ("J'ai initialise ton Rspec et ton git")
@@ -30,6 +31,7 @@ def lib
    file.close
    other_file.close
    other_file2.close
+   app_file.close
 end
  # Intialisation git et rspec
 def git
