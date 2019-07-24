@@ -11,10 +11,12 @@ require 'watir'
 Dir.mkdir("#{@chemin}""/""#{$nom}")
 Dir.chdir "#{$nom}"
 @geminit = ["'rspec'", "'pry'", "'rubocop', '~>0.57.2'", "'twitter'", "'dotenv'", "'nokogiri'", "'watir','~>6.16'", "'launchy'"]
- # Creation dossier projet, dossier lib, dossier db 
+ # Creation dossier projet, dossier lib, dossier db, app, 
  # Fichiers README, .gitignore, .env, app.rb
 def lib
    Dir.mkdir("#{@chemin}""/""#{$nom}""/lib")
+   Dir.mkdir("#{@chemin}""/""#{$nom}""/lib/app")
+   Dir.mkdir("#{@chemin}""/""#{$nom}""/lib/views")
    Dir.mkdir("#{@chemin}""/""#{$nom}""/db")
    Dir.mkdir("#{@chemin}""/""#{$nom}""/Autres_fichiers")
    other_file = File.open("#{@chemin}""/""#{$nom}""/Autres_fichiers/.env")
@@ -24,12 +26,14 @@ def lib
    app_file.puts ("Bundler.require")
    app_file.puts ("")
    app_file.puts ("unshift File.expand_path("./../lib", __FILE__)")
+   app_file = File.open("#{@chemin}""/""#{$nom}""/lib/views/inde.rb", "w+")
+   app_file = File.open("#{@chemin}""/""#{$nom}""/lib/views/done.rb", "w+")
    file = File.open("#{@chemin}""/""#{$nom}""/README.md", "w+")
    file.puts ("Ceci est le README du dossier : ""#{$nom}")
    file.puts ("J'ai initialise ton Rspec et ton git")
    file.puts ("J'ai cree ton gemfile et initialise bundle install")
    file.puts ("J'ai cree les fichiers et dossiers suivants :")
-   file.puts (" /lib, gitignore, gemfile, gemfilelock, readme,")
+   file.puts (" /lib, gitignore, gemfile, gemfilelock, readme, app repli")
    file.puts ("en tapant tf puis nom de fichier espace nom de dossier"
    file.puts ("tu cree le fichier et son spec")
    file.close
