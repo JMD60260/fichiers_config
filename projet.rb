@@ -20,6 +20,8 @@ def lib
    other_file = File.open("#{@chemin}""/""#{$nom}""/Autres_fichiers/.env")
    other_file2 = File.open("#{@chemin}""/""#{$nom}""/Autres_fichiers/.gitignore")
    app_file = File.open("#{@chemin}""/""#{$nom}""/app.rb", "w+")
+   qpp_file.puts ("require 'bundler'")
+   app_file.puts ("Bundler.require")
    file = File.open("#{@chemin}""/""#{$nom}""/README.md", "w+")
    file.puts ("Ceci est le README du dossier : ""#{$nom}")
    file.puts ("J'ai initialise ton Rspec et ton git")
