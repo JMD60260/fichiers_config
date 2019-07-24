@@ -11,8 +11,8 @@ require 'watir'
 Dir.mkdir("#{@chemin}""/""#{$nom}")
 Dir.chdir "#{$nom}"
 @geminit = ["'rspec'", "'pry'", "'rubocop', '~>0.57.2'", "'twitter'", "'dotenv'", "'nokogiri'", "'watir','~>6.16'", "'launchy'"]
- # Creation dossier projet, dossier lib, dossier db, app, 
- # Fichiers README, .gitignore, .env, app.rb
+ # Creation dossier projet, dossier lib, dossier db, app,, views 
+ # Fichiers README, .gitignore, .env, app.rb, index, done
 def lib
    Dir.mkdir("#{@chemin}""/""#{$nom}""/lib")
    Dir.mkdir("#{@chemin}""/""#{$nom}""/lib/app")
@@ -26,8 +26,8 @@ def lib
    app_file.puts ("Bundler.require")
    app_file.puts ("")
    app_file.puts ("unshift File.expand_path("./../lib", __FILE__)")
-   app_file = File.open("#{@chemin}""/""#{$nom}""/lib/views/inde.rb", "w+")
-   app_file = File.open("#{@chemin}""/""#{$nom}""/lib/views/done.rb", "w+")
+   index_file = File.open("#{@chemin}""/""#{$nom}""/lib/views/index.rb", "w+")
+   done_file = File.open("#{@chemin}""/""#{$nom}""/lib/views/done.rb", "w+")
    file = File.open("#{@chemin}""/""#{$nom}""/README.md", "w+")
    file.puts ("Ceci est le README du dossier : ""#{$nom}")
    file.puts ("J'ai initialise ton Rspec et ton git")
@@ -40,6 +40,8 @@ def lib
    other_file.close
    other_file2.close
    app_file.close
+   index_file.close
+   done_file.close 
 end
  # Intialisation git et rspec
 def git
