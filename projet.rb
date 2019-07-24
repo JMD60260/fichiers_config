@@ -13,7 +13,7 @@ Dir.chdir "#{$nom}"
 @geminit = ["'rspec'", "'pry'", "'rubocop', '~>0.57.2'", "'twitter'", "'dotenv'", "'nokogiri'", "'watir','~>6.16'", "'launchy'"]
  # Creation dossier projet, dossier lib, dossier db, app,, views 
  # Fichiers README, .gitignore, .env, app.rb, index, done
-def lib
+def lib_app_view_db_read
    Dir.mkdir("#{@chemin}/#{$nom}/lib")
    Dir.mkdir("#{@chemin}/#{$nom}/lib/app")
    Dir.mkdir("#{@chemin}/#{$nom}/lib/views")
@@ -30,25 +30,36 @@ def lib
    file.close
     
 end
- # Autres files
-#  def autres
-#    filed = File.open("#{@chemin}/#{$nom}/lib/views/done.rb", "w+")
-#    other_file = File.open("#{@chemin}/#{$nom}/Autres_fichiers/.env")
-#    other_file2 = File.open("#{@chemin}/#{$nom}/Autres_fichiers/.gitignore")
-#    app_file = File.open("#{@chemin}/#{$nom}/app.rb", "w+")
-#    qpp_file.puts ("require 'bundler'")
-#    app_file.puts ("Bundler.require")
-#    app_file.puts (" ")
-#    app_file.puts ("unshift File.expand_path("./../lib", __FILE__)")
-#    index_file = File.open("#{@chemin}/#{$nom}/lib/views/index.rb", "w+") 
-#    other_file.close
-#    other_file2.close
-#    app_file.close
-#    index_file.close
-#    filed.close
-#  end
+ # done file
+def done
+   file = File.open("#{@chemin}/#{$nom}/lib/views/done.rb", "w+")
+   file.close
+end
+ # index file
+def index
+   file = File.open("#{@chemin}/#{$nom}/lib/views/index.rb", "w+") 
+   file.close
+end
+# Initialize app.rb
+def app_rb
+   file = File.open("#{@chemin}/#{$nom}/app.rb", "w+")
+   file.puts ("require 'bundler'")
+   file.puts ("Bundler.require")
+   file.puts (" ")
+   file.puts ("unshift File.expand_path("./../lib", __FILE__)")
+file.close
+end
+# Initialiwe gitignore
+def gitignore
+   file = File.open("#{@chemin}/#{$nom}/Autres_fichiers/.gitignore", "w+")
+end
+# Initialise fichier .env
+def env
+   file = File.open("#{@chemin}/#{$nom}/Autres_fichiers/.env")#
+   file.close
+end
  # Intialisation git et rspec
-def git
+def git_rspec
    system("git init")
    system("rspec --init")
 end
@@ -69,14 +80,18 @@ def gemfile
        end
    end 
      file.close
-  system("bundle install") 
+      system("bundle install") 
 end 
-
-    lib
-    #autres
-    git
+def perform
+    lib_app_view_db_read
+    done
+    index
+    app_rb
+    #gitignore
+    env
+    git_rspec
     gemfile 
     system("git add .")
     system("git commit -m 'first commit README'") 
-    #system("git remote add origin git@github.com:JMD60260/""#{$nom}"".git") 
-    #system("git push -u origin master")    
+    system("git remote add origin git@github.com:JMD60260/""#{$nom}"".git") 
+end
