@@ -22,6 +22,8 @@ def lib
    app_file = File.open("#{@chemin}""/""#{$nom}""/app.rb", "w+")
    qpp_file.puts ("require 'bundler'")
    app_file.puts ("Bundler.require")
+   app_file.puts ("")
+   app_file.puts ("unshift File.expand_path("./../lib", __FILE__)")
    file = File.open("#{@chemin}""/""#{$nom}""/README.md", "w+")
    file.puts ("Ceci est le README du dossier : ""#{$nom}")
    file.puts ("J'ai initialise ton Rspec et ton git")
