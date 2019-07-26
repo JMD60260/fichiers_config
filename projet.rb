@@ -43,13 +43,21 @@ def app_rb
    app.puts ("require 'bundler'")
    app.puts ("Bundler.require")
    app.puts (" ")
-   app.puts ("unshift File.expand_path("./../lib", __FILE__)")
+   app.puts ("unshift File.expand_path(\"./../lib\", __FILE__)")
    app.close
 end
 # Initialiwe gitignore
-
+   def gitignore
+      gitignore = File.open("#{@chemin}/#{$nom}/.gitignore", "w+")
+      gitignore.puts (".env")
+      gitignore.puts (".DS_Store")
+      gitignore.close
+   end
 # Initialise fichier .env
-
+   def env
+      env = File.open("#{@chemin}/#{$nom}/.env", "w+")
+      env.close
+   end
  # Intialisation git et rspec
 def git_rspec
    system("git init")
@@ -65,7 +73,7 @@ def gemfile
        puts "Veux tu ""#{@geminit[i]} ?" + " " + ("y/n")
         a =STDIN.gets.chomp.to_s
        if a = "y" || a = "Y"
-           file.puts ("gem " + "#{@geminit[i]}")
+           gemfile.puts ("gem " + "#{@geminit[i]}")
            i +=1
        else
            i = i
@@ -79,11 +87,12 @@ def perform
     done
     index
     app_rb
-    #gitignore
-    #env
+    gitignore
+    env
     git_rspec
-    #gemfile 
+    gemfile 
    #  system("git add .")
    #  system("git commit -m 'first commit README'") 
    #  system("git remote add origin git@github.com:JMD60260/""#{$nom}"".git") 
 end
+perform
