@@ -9,7 +9,7 @@ require 'watir'
   $nom = STDIN.gets.chomp.to_s
 Dir.mkdir("#{@chemin}/#{$nom}")
 Dir.chdir "#{$nom}"
-@geminit = ["'rspec'", "'pry'", "'rubocop', '~>0.57.2'", "'twitter'", "'dotenv'", "'nokogiri'", "'watir','~>6.16'", "'launchy'"]
+@geminit = ["'rspec'", "'pry'", "'rubocop', '~>0.57.2'", "'twitter'", "'dotenv'", "'nokogiri'", "'watir','~>6.16'", "'launchy'","'sinatra'"]
  # Creation dossier projet, dossier lib, dossier db, app,, views 
  # Fichiers README, .gitignore, .env, app.rb, index, done
 def lib_app_view_db_read
