@@ -28,7 +28,7 @@ def lib_app_view_db_read
    resme.puts ("mon_projet
                   ├── lib
                   │   ├── app
-                  │   │   ├── scrapper.rb
+                  │   │   ├── projet.rb
                   │   │   └── email_sender.rb
                   │   └── views
                   │       ├── done.rb
@@ -37,7 +37,7 @@ def lib_app_view_db_read
                   │   └── thing.csv
                   ├── spec
                   │   ├── spec_helper.rb
-                  │   └── scrapper_spec.rb
+                  │   └── projet_spec.rb
                   ├── app.rb
                   ├── README.md
                   ├── Gemfile
