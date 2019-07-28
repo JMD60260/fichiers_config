@@ -25,6 +25,25 @@ def lib_app_view_db_read
    readme.puts (" /lib, gitignore, gemfile, gemfilelock, readme, app repli")
    readme.puts ("en tapant tf puis nom de fichier espace nom de dossier")
    readme.puts ("tu cree le fichier et son spec")
+   resme.puts ("mon_projet
+                  ├── lib
+                  │   ├── app
+                  │   │   ├── scrapper.rb
+                  │   │   └── email_sender.rb
+                  │   └── views
+                  │       ├── done.rb
+                  │       └── index.rb
+                  ├── db
+                  │   └── thing.csv
+                  ├── spec
+                  │   ├── spec_helper.rb
+                  │   └── scrapper_spec.rb
+                  ├── app.rb
+                  ├── README.md
+                  ├── Gemfile
+                  ├── Gemfile.lock
+                  ├── Autres fichiers (.env, .gitignore)
+                  └── .rspec")
    readme.close   
 end
  # done file
