@@ -80,7 +80,7 @@ end
  # Intialisation git et rspec
 def git_rspec
    system("git init")
-   system("rspec --init")
+   #system("rspec --init")
 end
  # Création du fichier Gemfile et Gemlock
 def gemfile
@@ -110,8 +110,8 @@ def perform
     env
     git_rspec
     gemfile 
-   #  system("git add .")
-   #  system("git commit -m 'first commit README'") 
-   #  system("git remote add origin git@github.com:JMD60260/""#{$nom}"".git") 
+    #system("git add .")
+    #system("git commit -m 'first commit README'") 
+    #system("git remote add origin git@github.com:JMD60260/""#{$nom}"".git") 
 end
 perform
