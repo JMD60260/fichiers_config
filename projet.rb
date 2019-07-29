@@ -25,7 +25,7 @@ def lib_app_view_db_read
    readme.puts (" /lib, gitignore, gemfile, gemfilelock, readme, app repli")
    readme.puts ("en tapant tf puis nom de fichier espace nom de dossier")
    readme.puts ("tu cree le fichier et son spec")
-   resme.puts ("mon_projet
+   readme.puts ("mon_projet
                   ├── lib
                   │   ├── app
                   │   │   ├── projet.rb
